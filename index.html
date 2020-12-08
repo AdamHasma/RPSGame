@@ -24,28 +24,25 @@
       <h5>How good are you against a computer? Pick your weapon!</h5>
       <div class="weapon-container">
         <div id="rock" class="weapon">
-          <img class="icon" src="rock.png" alt="rock">
+          <img id="rock" class="icon" src="rock.png" alt="rock">
         </div>
         <div id="paper" class="weapon">
-          <img class="icon" src="paper.png" alt="paper">
+          <img id="paper" class="icon" src="paper.png" alt="paper">
         </div>
         <div id="scissors" class="weapon">
-          <img class="icon" src="scissors.png" alt="scissors">
+          <img id="scissors" class="icon" src="scissors.png" alt="scissors">
         </div>
       </div>
-      <h5 class="margin-eins"><span style="font-weight:600;">You Won!</span> By pure skill ofc.</h5>
+      <div id="result" class="hide margin-eins"></div>
     </div>
     <div class="footer">
-      <div class="score">
-        <h5 style="display:inline;">You: </h5>
-        <h5 id="player" style="display:inline;">0</h5>
+      <div id='score' class="hide">
+        <div class="hide score">
+          <h5 style="display:block;">You: 0</h5>
+          <h5 style="display:block;">Computer: 0</h5>
+        </div>
       </div>
-      <div class="score">
-        <h5 style="display:inline;">Computer: </h5>
-        <h5 id="computer" style="display:inline;">0</h5>
-      </div>
-
-      <button type="button" name="button">PLAY ON</button>
+      <button id="playOn" class="hide" type="button" name="button">PLAY ON</button>
       <a href="https://icons8.com/" class="text-supersamll">Icons from Icons8</a>
     </div>
   </div>
