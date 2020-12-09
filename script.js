@@ -3,15 +3,15 @@ const paper = document.getElementById('paper');
 const scissors = document.getElementById('scissors');
 const choices = document.querySelectorAll('.weapon');
 const restart = document.getElementById('playOn');
-const result = document.getElementById('result')
+const result = document.getElementById('result');
+let computerCount = 0;
+let playerCount = 0;
+let audio = new Audio('kekw.mp3')
 const scoreboard = {
   player: 0,
   computer: 0
 };
-
 const hideElements = document.querySelectorAll('.hide');
-
-
 
 function play(e) {
   hideElements.forEach((hide) => {
@@ -20,8 +20,8 @@ function play(e) {
   const playerChoice = e.target.id
   const computerChoice = getComputerChoice();
   const winner = getWinner(playerChoice, computerChoice);
-  showWinner(winner, computerChoice)
-}
+  showWinner(winner, computerChoice);
+};
 
 function getComputerChoice() {
   const rand = Math.random();
@@ -32,7 +32,7 @@ function getComputerChoice() {
   } else {
     return 'scissors';
   }
-}
+};
 
 function getWinner(p, c) {
   if (p === c) {
@@ -54,8 +54,8 @@ function getWinner(p, c) {
     }
   } else if (p === 'paper') {
     if (c === 'scissors') {
-      rock.setAttribute('style', 'background: #C28484;');
-      paper.setAttribute('style', 'background: #c3c3c3;');
+      paper.setAttribute('style', 'background: #C28484;');
+      rock.setAttribute('style', 'background: #c3c3c3;');
       scissors.setAttribute('style', 'background: #c3c3c3;');
       return 'computer';
     } else {
@@ -83,9 +83,18 @@ function showWinner(winner, computerChoice) {
   if (winner === 'player') {
     scoreboard.player++;
     result.innerHTML = `<h5 class="text-win"><span style="font-weight: 800;">You win!</span> Computer took ${computerChoice}.</h5>`;
+    playerCount ++;
+    computerCount = 0;
   } else if (winner === 'computer') {
     scoreboard.computer++;
     result.innerHTML = `<h5 class="text-lose"><span style="font-weight: 800;">You lose!</span> Computer took ${computerChoice}.</h5>`;
+    computerCount ++;
+    playerCount = 0;
+    if (computerCount === 3) {
+      audio.play();
+      document.getElementById('kekw').setAttribute('style', 'display: block;');
+      setTimeout(function(){ document.getElementById('kekw').setAttribute('style', 'display: none;'); }, 2000);
+    }
   } else {
     result.innerHTML = `<h5 class="text-draw"><span style="font-weight: 800;">It's a draw.</span> Computer took ${computerChoice}.</h5>`;
   }
@@ -93,9 +102,18 @@ function showWinner(winner, computerChoice) {
   <h5>You: ${scoreboard.player}</h5>
   <h5>Computer: ${scoreboard.computer}</h5>
   `;
-}
+};
+
+
+ restart.onclick = function () {
+   result.style.display = 'none';
+   rock.setAttribute('style', 'background: #84BFC2;');
+   paper.setAttribute('style', 'background: #84BFC2;');
+   scissors.setAttribute('style', 'background: #84BFC2;');
+};
+
 
 // Event listeners
 choices.forEach((choice) => {
-  choice.addEventListener('click', play);
+    choice.addEventListener('click', play);
 });
