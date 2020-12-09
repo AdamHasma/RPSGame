@@ -22,7 +22,7 @@
   font-weight: 800;
 }
 
-*{
+* {
   box-sizing: border-box;
 }
 
@@ -115,7 +115,8 @@ small, .text-small {
   padding: 13px;
   border-radius: 25%;
   transition: background-color 350ms ease-in-out;
-/*  box-shadow: 0px 0px 30px rgba(132, 191, 194, 0.5); */
+  transition: box-shadow 550ms ease-in-out;
+
 }
 
 .icon {
@@ -169,29 +170,120 @@ button {
   color: #c3c3c3;
 }
 
-
-.hide{
-  display:none;
+.hide {
+  display: none;
 }
 
 #kekw {
-  display:none;
-  border: solid 5px #84BFC2;
-  border-radius: 50px;
+  display: none;
+  border-radius: 25px;
   position: absolute;
-  left:25%;
-  right:0;
-  top:10%;
-  width:160px;
-  height:200px;
+  left: calc(50% - 80px);
+  top: 10%;
+  width: 160px;
+  height: 200px;
   object-fit: cover;
 }
 
 #poggers {
-  display:none;
+  display: none;
   position: absolute;
-  left:25%;
-  right:0;
-  top:10%;
-  width:160px;
+  left: calc(50% - 80px);
+  top: 10%;
+  width: 160px;
+}
+
+.display-one {
+  display: contents;
+}
+
+@media (min-width: 768px) {
+  .display-none {
+    display: contents;
+  }
+
+  h3, h5, .text-small {
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 44px;
+  }
+
+  h5 {
+    font-size: 1.563rem;
+  }
+
+  .display-one {
+    display: inherit;
+  }
+
+  .text-small {
+    font-size: inherit;
+    line-height: 21.6px;
+  }
+
+  .icon {
+    width: 100px;
+  }
+
+  .weapon-container {
+    margin-top: 32px;
+    justify-content: space-around;
+  }
+
+  body {
+    padding: 32px 24px;
+  }
+
+  .main-container {
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: calc(100% - 48px);
+    margin-top: 0;
+    position: absolute;
+    top: calc(50% - 180px);
+  }
+
+  .margin-eins {
+    margin-top: 64px;
+  }
+
+  a {
+    position: relative;
+    left: calc(50% - 59px);
+  }
+
+  .text-supersamll {
+    font-size: 0.8rem;
+  }
+
+  button {
+    margin-top: 16px;
+    font-size: 1.53rem;
+    width: auto;
+    padding: 13px 23px;
+  }
+
+  .footer {
+    left: calc(50% - 90px)
+  }
+}
+
+@media (min-width: 1024px) {
+  .main-container {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+  .weapon {
+    cursor: pointer;
+    
+  }
 }

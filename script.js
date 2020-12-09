@@ -83,21 +83,25 @@ function showWinner(winner, computerChoice) {
   if (winner === 'player') {
     scoreboard.player++;
     result.innerHTML = `<h5 class="text-win"><span style="font-weight: 800;">You win!</span> Computer took ${computerChoice}.</h5>`;
-    playerCount ++;
+    playerCount++;
     computerCount = 0;
     if (playerCount === 3) {
       document.getElementById('poggers').setAttribute('style', 'display: block;');
-      setTimeout(function(){ document.getElementById('poggers').setAttribute('style', 'display: none;'); }, 1900);
+      setTimeout(function() {
+        document.getElementById('poggers').setAttribute('style', 'display: none;');
+      }, 1900);
     }
   } else if (winner === 'computer') {
     scoreboard.computer++;
     result.innerHTML = `<h5 class="text-lose"><span style="font-weight: 800;">You lose!</span> Computer took ${computerChoice}.</h5>`;
-    computerCount ++;
+    computerCount++;
     playerCount = 0;
     if (computerCount === 3) {
       audio.play();
       document.getElementById('kekw').setAttribute('style', 'display: block;');
-      setTimeout(function(){ document.getElementById('kekw').setAttribute('style', 'display: none;'); }, 1900);
+      setTimeout(function() {
+        document.getElementById('kekw').setAttribute('style', 'display: none;');
+      }, 1900);
     }
   } else {
     result.innerHTML = `<h5 class="text-draw"><span style="font-weight: 800;">It's a draw.</span> Computer took ${computerChoice}.</h5>`;
@@ -109,15 +113,15 @@ function showWinner(winner, computerChoice) {
 };
 
 
- restart.onclick = function () {
-   result.style.display = 'none';
-   rock.setAttribute('style', 'background: #84BFC2;');
-   paper.setAttribute('style', 'background: #84BFC2;');
-   scissors.setAttribute('style', 'background: #84BFC2;');
+restart.onclick = function() {
+  result.style.display = 'none';
+  rock.setAttribute('style', 'background: #84BFC2;');
+  paper.setAttribute('style', 'background: #84BFC2;');
+  scissors.setAttribute('style', 'background: #84BFC2;');
 };
 
 
 // Event listeners
 choices.forEach((choice) => {
-    choice.addEventListener('click', play);
+  choice.addEventListener('click', play);
 });
