@@ -182,8 +182,16 @@ button {
   left:25%;
   right:0;
   top:10%;
-  background-image: url('kekw.gif');
   width:160px;
   height:200px;
   object-fit: cover;
+}
+
+#poggers {
+  display:none;
+  position: absolute;
+  left:25%;
+  right:0;
+  top:10%;
+  width:160px;
 }
